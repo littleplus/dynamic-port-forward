@@ -1,0 +1,14 @@
+[Unit]
+Description=forward
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+PIDFile=/var/run/proxy.pid
+ExecStart=/usr/bin/forward -c /etc/forward.json
+ExecReload=/bin/sh -c "/bin/kill -s HUP $(/bin/cat /var/run/proxy.pid)"
+ExecStop=/bin/sh -c "/bin/kill -s TERM $(/bin/cat /var/run/proxy.pid)"
+
+[Install]
+WantedBy=multi-user.target

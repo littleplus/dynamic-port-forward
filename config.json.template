@@ -1,0 +1,5 @@
+[
+    {"listen":":443","forward":"google.com:443","proto":"tcp"},
+    {"listen":"0.0.0.0:53","forward":"8.8.8.8:53","proto":"udp"},
+    {"listen":":8888","forward":"127.0.0.1:8889"}
+]
